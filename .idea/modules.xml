@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/chapter03-condition/chapter03-condition.iml" filepath="$PROJECT_DIR$/chapter03-condition/chapter03-condition.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-heima.iml" filepath="$PROJECT_DIR$/.idea/java-heima.iml" />
     </modules>
   </component>

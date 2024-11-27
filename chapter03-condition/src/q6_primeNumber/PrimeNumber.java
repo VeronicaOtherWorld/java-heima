@@ -1,4 +1,4 @@
-package q5_primeNumber;
+package q6_primeNumber;
 
 import java.util.Scanner;
 

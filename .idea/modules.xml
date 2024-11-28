@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/chapter03-condition/chapter03-condition.iml" filepath="$PROJECT_DIR$/chapter03-condition/chapter03-condition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter04_combination_exercise/chapter04_combination_exercise.iml" filepath="$PROJECT_DIR$/chapter04_combination_exercise/chapter04_combination_exercise.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-heima.iml" filepath="$PROJECT_DIR$/.idea/java-heima.iml" />
     </modules>
   </component>

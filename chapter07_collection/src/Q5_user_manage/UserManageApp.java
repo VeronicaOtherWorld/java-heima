@@ -19,9 +19,8 @@ public class UserManageApp {
         userManageList.add(um2);
         userManageList.add(um3);
         System.out.println(findUser(userManageList, 4));
+
     }
-
-
     public static boolean findUser(ArrayList<UserManage> list, int id) {
         int res = findUserIndex(list, id);
         if (res != -1) {

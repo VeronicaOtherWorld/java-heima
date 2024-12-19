@@ -10,6 +10,7 @@ public class StudentMgtApp {
         ArrayList<User> userList = new ArrayList<>();
         boolean flag = true;
         boolean loginFlag = true;
+        boolean loginStatus = true;
         User user = new User();
         Scanner sc = new Scanner(System.in);
         while (loginFlag) {
@@ -21,7 +22,10 @@ public class StudentMgtApp {
             switch (choice) {
                 case "1":
                     System.out.println("login");
-                    user.Login(userList);
+                    loginStatus = user.Login(userList);
+                    if (loginStatus) {
+                        loginFlag = false;
+                    }
                     break;
                 case "2":
                     System.out.println("register");
@@ -35,56 +39,57 @@ public class StudentMgtApp {
                     break;
             }
         }
-        // while (flag) {
-        //     System.out.println("\"-------------welcome to student mgt system----------------\"\n" +
-        //             "\"1：add student\"\n" +
-        //             "\"2：delete student\"\n" +
-        //             "\"3：modify student\"\n" +
-        //             "\"4：query student\"\n" +
-        //             "\"5：exit\"\n" +
-        //             "enter your choice(number): ");
-        //     int menuNum = sc.nextInt();
-        //     switch (menuNum) {
-        //         case 1:
-        //             sm.addStudent(stuList);
-        //             System.out.println(stuList);
-        //             break;
-        //         case 2:
-        //             System.out.println("delete student");
-        //             System.out.println("eneter the id of student that you want to delete");
-        //             int id = sc.nextInt();
-        //             boolean res = sm.deleteStudent(stuList, id);
-        //             System.out.println(res);
-        //             if (res) {
-        //                 System.out.println("student deleted");
-        //                 break;
-        //             } else {
-        //                 System.out.println("student not deleted");
-        //                 break;
-        //             }
-        //         case 3:
-        //             System.out.println("modify student");
-        //             System.out.println("eneter the id of student that you want to update");
-        //             int updateId = sc.nextInt();
-        //             int resIndex = sm.getStudentIndex(stuList, updateId);
-        //             if (resIndex == -1) {
-        //                 System.out.println("student not found");
-        //                 break;
-        //             }
-        //             sm.modifyStudent(stuList,resIndex);
-        //             break;
-        //         case 4:
-        //             System.out.println("query student");
-        //             sm.queryStuList(stuList);
-        //             break;
-        //         case 5:
-        //             System.out.println("exit");
-        //             flag = false;
-        //             break;
-        //         default:
-        //             System.out.println("enter a number");
-        //             break;
-        //     }
-        // }
+        // student how to use
+        while (flag) {
+            System.out.println("\"-------------welcome to student mgt system----------------\"\n" +
+                    "\"1：add student\"\n" +
+                    "\"2：delete student\"\n" +
+                    "\"3：modify student\"\n" +
+                    "\"4：query student\"\n" +
+                    "\"5：exit\"\n" +
+                    "enter your choice(number): ");
+            int menuNum = sc.nextInt();
+            switch (menuNum) {
+                case 1:
+                    sm.addStudent(stuList);
+                    System.out.println(stuList);
+                    break;
+                case 2:
+                    System.out.println("delete student");
+                    System.out.println("eneter the id of student that you want to delete");
+                    int id = sc.nextInt();
+                    boolean res = sm.deleteStudent(stuList, id);
+                    System.out.println(res);
+                    if (res) {
+                        System.out.println("student deleted");
+                        break;
+                    } else {
+                        System.out.println("student not deleted");
+                        break;
+                    }
+                case 3:
+                    System.out.println("modify student");
+                    System.out.println("eneter the id of student that you want to update");
+                    int updateId = sc.nextInt();
+                    int resIndex = sm.getStudentIndex(stuList, updateId);
+                    if (resIndex == -1) {
+                        System.out.println("student not found");
+                        break;
+                    }
+                    sm.modifyStudent(stuList,resIndex);
+                    break;
+                case 4:
+                    System.out.println("query student");
+                    sm.queryStuList(stuList);
+                    break;
+                case 5:
+                    System.out.println("exit");
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("enter a number");
+                    break;
+            }
+        }
     }
 }

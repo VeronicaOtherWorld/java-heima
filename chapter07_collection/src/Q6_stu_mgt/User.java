@@ -37,11 +37,23 @@ public class User {
         boolean pwdFlag = false;
         boolean ssnFlag = false;
         boolean phoneNumberFlag = false;
+        boolean uniqueNameFlag = true;
         // name
-        while (!flag){
+        while (!flag || uniqueNameFlag){
             System.out.println("enter your username");
             name = scanner.next();
             flag = validateName(name);
+            if (!flag) { // 如果名字不合法，直接提示并继续循环
+                System.out.println("Invalid username. Please try again.");
+                continue;
+            }
+            // unique
+            uniqueNameFlag = containName(users, name);
+            if (uniqueNameFlag){
+                System.out.println("username exist");
+            } else {
+                System.out.println("username not exist");
+            }
         }
 
         // password
@@ -72,12 +84,10 @@ public class User {
             phoneNumber = scanner.next();
             phoneNumberFlag = validatePhoneNumber(phoneNumber);
         }
-        if (flag == true && pwdFlag == true && ssnFlag == true && phoneNumberFlag == true) {
-            User user = new User(name, password, ssn, phoneNumber);
-            users.add(user);
-            System.out.println(users.toString());
-            System.out.println("register success!!!");
-        }
+        User user = new User(name, password, ssn, phoneNumber);
+        users.add(user);
+        System.out.println(users.toString());
+        System.out.println("register success!!!");
     }
 
     // the name must have char and numbers, 3-15 length
@@ -106,6 +116,14 @@ public class User {
         return true;
     }
 
+    public boolean containName(ArrayList<User> users, String name){
+        for (int i = 0; i < users.size(); i++){
+            if (users.get(i).name.equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
     // register password
     public boolean validatePwd(String pwd1, String pwd2){
         if (pwd1.equals(pwd2)){
@@ -118,6 +136,10 @@ public class User {
         // length 18
         if (ssn.length() != 18) {
             System.out.println("length");
+            return false;
+        }
+        // cannot start with 0
+        if (ssn.startsWith("0")) {
             return false;
         }
 
@@ -163,8 +185,8 @@ public class User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
-    //  login==============
-    public void Login(ArrayList<User> users) {
+    //  ====================login====================
+    public boolean Login(ArrayList<User> users) {
         int userIndex;
         // if name exit
         boolean nameFlag = false;
@@ -174,7 +196,7 @@ public class User {
             userIndex = validateLoginName(users, enterName);
             if (userIndex == -1) {
                 System.out.println("name is not exist, please register first");
-                return;
+                return false;
             }
             nameFlag = true;
         }while (!nameFlag);
@@ -185,8 +207,7 @@ public class User {
             String code = createCode();
             System.out.println("please enter security code ( " + code + " ) :");
             String enterCode = scanner.next();
-            validateCode(code, enterCode);
-            flag = true;
+            flag = validateCode(code, enterCode);
         }while (!flag);
 
         // password
@@ -203,6 +224,7 @@ public class User {
             }
         } while (!pwdFlag);
         System.out.println("login success");
+        return true;
     }
 
     public int validateLoginName(ArrayList<User> users, String name) {
@@ -213,12 +235,14 @@ public class User {
         }
         return -1;
     }
-    public void validateCode(String code, String enterCode) {
+    public boolean validateCode(String code, String enterCode) {
         if (enterCode.equalsIgnoreCase(code)) {
             System.out.println("the code is correct");
+            return true;
         } else {
             System.out.println("the code is not correct");
         }
+        return false;
     }
 
     public boolean validateLoginPwd(ArrayList<User> users,int userIndex, String enterPwd) {
@@ -244,7 +268,7 @@ public class User {
         }
     }
 
-    // reset=============
+    // =================reset================
     // validate name, not exist return
     // validate ssn and phone number
     //     same => ask user enter password, set
@@ -257,23 +281,22 @@ public class User {
         userIndex = validateLoginName(users, enterName);
         if (userIndex == -1) {
             System.out.println("please register first");
+            return;
         }
         // ssn
         System.out.println("please enter your ssn");
         String enterSsn = scanner.next();
         System.out.println("please enter your phone number");
         String enterPhoneNumber = scanner.next();
-        if (enterPhoneNumber.equals(users.get(userIndex).getPhoneNumber()) &&
-                enterSsn.equals(users.get(userIndex).getSsn())) {
-            System.out.println("please enter your new password");
-            String enterPwd = scanner.next();
-            users.get(userIndex).setPassword(enterPwd);
-            System.out.println("reset password success");
-        } else {
+        if (!(enterPhoneNumber.equals(users.get(userIndex).getPhoneNumber()) &&
+                enterSsn.equalsIgnoreCase(users.get(userIndex).getSsn()))) {
             System.out.println("not match, cannot reset password");
+            return;
         }
-
-
+        System.out.println("please enter your new password");
+        String enterPwd = scanner.next();
+        users.get(userIndex).setPassword(enterPwd);
+        System.out.println("reset password success");
 
     }
 

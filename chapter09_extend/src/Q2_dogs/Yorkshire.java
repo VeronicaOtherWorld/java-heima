@@ -6,6 +6,7 @@ public class Yorkshire extends Dogs {
     }
     @Override
     public void eat() {
+        super.eat();
         System.out.println("eat dog food and rice");
     }
 }

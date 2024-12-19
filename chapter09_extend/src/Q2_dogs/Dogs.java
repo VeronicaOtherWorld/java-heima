@@ -5,7 +5,7 @@ public class Dogs {
 
     }
     public void eat(){
-        System.out.println("Dogs eat");
+        System.out.println("Dogs eat dog food");
     }
     public void drink(){
         System.out.println("Dogs drink");

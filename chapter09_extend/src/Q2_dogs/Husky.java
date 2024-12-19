@@ -10,6 +10,6 @@ public class Husky extends Dogs{
 
     @Override
     public void eat() {
-        System.out.println("eat dog food");
+        super.eat();
     }
 }

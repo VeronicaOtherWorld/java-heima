@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/chapter07_collection/chapter07_collection.iml" filepath="$PROJECT_DIR$/chapter07_collection/chapter07_collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter08_static/chapter08_static.iml" filepath="$PROJECT_DIR$/chapter08_static/chapter08_static.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter09_extend/chapter09_extend.iml" filepath="$PROJECT_DIR$/chapter09_extend/chapter09_extend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter10_polym/chapter10_polym.iml" filepath="$PROJECT_DIR$/chapter10_polym/chapter10_polym.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-heima.iml" filepath="$PROJECT_DIR$/.idea/java-heima.iml" />
     </modules>
   </component>

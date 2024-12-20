@@ -29,3 +29,31 @@ package Q2_knowledge;
  * * * * */
 public class Knowledge {
 }
+
+/**
+ * pro:
+ * 右边对象可以实现解耦合,便于扩展和维护
+ *
+ * 定义方法时候,可以使用parent作为参数,接收所有子类对象,体现多态的拓展与便利性
+ *
+ *
+ * con:
+ * 不能调用子类的特有功能
+ * 向下转型?
+ * Parent p1 = new Child();
+ * Child c1 = (Child) p1;
+ *
+ * 团队合作的时候,先进行类型判断
+ * object name instanceof class name
+ * 减少出现问题的情况
+ *
+ * 新特性:
+ * 强转 与 判断写在一起
+ * 是强转
+ * 否false
+ * if (a instanceof Dog d)
+ * else if(a instance of Cat c)
+ * else {
+ *     false
+ * }
+ * */

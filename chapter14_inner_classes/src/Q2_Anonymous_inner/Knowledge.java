@@ -19,3 +19,9 @@ public class Knowledge {
  * }
  *
  * */
+
+/**
+ * 匿名内部类,是隐藏了名字的内部,可以写在attribute
+  或者method位置
+ *
+ * */

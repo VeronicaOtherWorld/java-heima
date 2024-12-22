@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/chapter09_extend/chapter09_extend.iml" filepath="$PROJECT_DIR$/chapter09_extend/chapter09_extend.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter10_polym/chapter10_polym.iml" filepath="$PROJECT_DIR$/chapter10_polym/chapter10_polym.iml" />
       <module fileurl="file://$PROJECT_DIR$/chapter11_package/chapter11_package.iml" filepath="$PROJECT_DIR$/chapter11_package/chapter11_package.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter12_abstract_class/chapter12_abstract_class.iml" filepath="$PROJECT_DIR$/chapter12_abstract_class/chapter12_abstract_class.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-heima.iml" filepath="$PROJECT_DIR$/.idea/java-heima.iml" />
     </modules>
   </component>
